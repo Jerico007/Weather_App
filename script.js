@@ -79,11 +79,16 @@ function degreesToCompassDirection(degrees) {
 async function fetchWeatherData(lat, lon) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
-  let response = await fetch(url, { method: "GET" });
-
-  let result = await response.json();
-
-  return result;
+  try {
+    
+    let response = await fetch(url, { method: "GET" });
+  
+    let result = await response.json();
+    
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function getGeoLocation() {
@@ -104,7 +109,7 @@ getGeoLocation();
 
 async function addDataToUI(lat, lon) {
   let ans = await fetchWeatherData(lat, lon);
-  console.log(ans);
+  // console.log(ans);
   let childContainer = document.createElement("div");
   childContainer.innerHTML = `<div class="welcome-container">
   <div class="welcome-row1">
