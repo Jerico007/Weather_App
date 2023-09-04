@@ -46,7 +46,7 @@
 }
 
 .welcome-row2 > iframe {
-  height: 430px;
+  height: 600px;
   width: 100%;
 }
 
@@ -63,7 +63,7 @@
 
 .weather-container {
   margin-top: 20px;
-  width: 70vw;
+  width: auto;
   display: flex;
   flex-flow: wrap;
   gap: 12px;
@@ -81,4 +81,16 @@
 
 .weather-container > div > sup {
   color: white;
+}
+
+@media screen and (max-width: 473px) {
+  .weather-container > div {
+    background-color: #270846;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: 900;
+    font-size: 13px;
+    color: white;
+  }
 }
